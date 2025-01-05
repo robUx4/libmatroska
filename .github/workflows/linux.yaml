@@ -18,8 +18,6 @@ jobs:
     steps:
       - name: list compilers
         run: dpkg --list | grep compiler
-      - name: list libc++
-        run: dpkg --list | grep libc++
 
       - name: Get pushed code
         uses: actions/checkout@v4
@@ -61,8 +59,6 @@ jobs:
 
       - name: list compilers
         run: dpkg --list | grep compiler
-      - name: list libc++
-        run: dpkg --list | grep libc++
 
       - name: Get pushed code
         uses: actions/checkout@v4
@@ -104,8 +100,6 @@ jobs:
 
       - name: list compilers
         run: dpkg --list | grep compiler
-      - name: list libc++
-        run: dpkg --list | grep libc++
 
       - name: Get pushed code
         uses: actions/checkout@v4
