@@ -52,10 +52,13 @@ jobs:
     env:
       CMAKE_OPTIONS: -DDEV_MODE=ON -DBUILD_TESTING=ON
       CMAKE_MATROSKA_OPTIONS: -DBUILD_EXAMPLES=ON
+      CC: gcc-7
+      CXX: g++-7
     steps:
-      - uses: egor-tensin/setup-gcc@v1
-        with:
-          version: 7
+      - name: install gcc-7
+        run: |
+          sudo add-apt-repository --yes --update ppa:ubuntu-toolchain-r/test
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends g++-7
 
       - name: list compilers
         run: dpkg --list | grep compiler
