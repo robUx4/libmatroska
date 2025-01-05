@@ -16,6 +16,11 @@ jobs:
       CMAKE_MATROSKA_OPTIONS: -DBUILD_EXAMPLES=ON
       CXX: ${{matrix.cxx}}
     steps:
+      - name: list compilers
+        run: dpkg --list | grep compiler
+      - name: list libc++
+        run: dpkg --list | grep libc++
+
       - name: Get pushed code
         uses: actions/checkout@v4
 
@@ -57,6 +62,11 @@ jobs:
       CMAKE_MATROSKA_OPTIONS: -DBUILD_EXAMPLES=ON
       CXX: ${{ matrix.compiler.cpp }}-${{ matrix.compiler.version }}
     steps:
+      - name: list compilers
+        run: dpkg --list | grep compiler
+      - name: list libc++
+        run: dpkg --list | grep libc++
+
       - name: Get pushed code
         uses: actions/checkout@v4
 
